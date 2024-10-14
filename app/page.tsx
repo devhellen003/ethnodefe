@@ -1,17 +1,22 @@
+"use client";
 import Image from "next/image";
+import Header from "./ui/Header";
+import Pool from "./ui/pool";
+import Footer from "./ui/Footer";
+
+import "./styles/tailwind.css"
+import "./styles/van.css"
+import "./styles/common.css"
+
+import { Web3Provider } from "./Web3Provider";
 
 export default function Home() {
   return (
-    <div>
-    <Head>
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <title>ETH NODE</title>
-    </Head>
+       <Web3Provider>
 
-    <Header />
-
-  </div>
+         <Header />
+         <Pool />
+         <Footer />
+      </Web3Provider>
   );
 }
