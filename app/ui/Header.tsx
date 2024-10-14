@@ -78,9 +78,9 @@ let userData = {
    
     async function createUser() {
       
-      console.log(`Informations ${address} and ${code}`)
+      //console.log(`Informations ${address} and ${code}`)
       
-      console.log(`Userdata `, userData)
+      //console.log(`Userdata `, userData)
       postNewUser(userData);
     };
 

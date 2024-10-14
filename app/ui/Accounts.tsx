@@ -49,7 +49,7 @@ const AccountInfo = () => {
   useEffect(() => {
     const getUser = async (address : string) => {
         const user = await getUserInfo(address);
-        console.log(user);
+        //console.log(user);
         setUserInfo(user);
       
     };

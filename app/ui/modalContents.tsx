@@ -61,7 +61,7 @@ export function depositModal () {
   let deposit = async () => {
     
   const codeValue = codeRef.current.value;
-    console.log(`Previous: ${codeValue} and  ${value$ }`)
+    //console.log(`Previous: ${codeValue} and  ${value$ }`)
 
     if(address){
     if(codeValue !== ""){
@@ -86,7 +86,7 @@ export function depositModal () {
    
     const getUser = async (address : string) => {
       const user = await getUserInfo(address);
-      console.log(user);
+      //console.log(user);
       setUserInfo(user);
     
   };

@@ -1,6 +1,6 @@
 export async function postNewUser(userData : object) {
     try {
-        const response = await fetch('http://localhost:8080/api/users/', {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -13,7 +13,7 @@ export async function postNewUser(userData : object) {
         }
     
         const data = await response.json();
-        console.log('Success:', data);
+        //console.log('Success:', data);
       } catch (error) {
         console.error('Error:', error);
       }
@@ -21,7 +21,7 @@ export async function postNewUser(userData : object) {
 
 export const getUserInfo = async (address : string) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/users/${address}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/${address}`);
       
       // Check if the response is OK (status code 200-299)
       if (!response.ok) {
@@ -39,7 +39,7 @@ export const getUserInfo = async (address : string) => {
 
 // Define the function to send form input to an API
 export async function convertEth(inputValue: string, address: string): Promise<boolean> {
-  const apiUrl = "http://localhost:8080/api/users/convertETH/"; // Replace with your actual API endpoint
+  const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/convertETH/`; // Replace with your actual API endpoint
 
   try {
     const response = await fetch(apiUrl, {
@@ -67,7 +67,7 @@ export async function convertEth(inputValue: string, address: string): Promise<b
 
 
 export async function depositData(formData: string, address: string): Promise<boolean> {
-  const apiUrl = `http://localhost:8080/api/users/${address}`; // Replace with your API endpoint
+  const apiUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/${address}`; // Replace with your API endpoint
 
   try {
     const response = await fetch(apiUrl, {
@@ -107,7 +107,7 @@ interface IncrementReferralsResponse {
 
 export async function incrementReferralsByCode(referralCode: string): Promise<boolean> {
   try {
-    const response = await fetch(`http://localhost:8080/api/users/refered/${referralCode}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/refered/${referralCode}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -119,7 +119,7 @@ export async function incrementReferralsByCode(referralCode: string): Promise<bo
 
     // Check if the API responded with success
     if (response.ok) {
-      console.log("Referrals incremented:", data.user);
+      //console.log("Referrals incremented:", data.user);
       return true;
     } else {
       console.error("Failed to increment referrals:", data.message || data.error);

@@ -164,7 +164,7 @@ export async function sendMessage(message: string) {
     // Parse the JSON response (assuming the API returns JSON)
     const data = await response.json();
 
-    console.log('Message sent successfully:', data);
+    //console.log('Message sent successfully:', data);
     return true;
   } catch (error) {
     console.error('Failed to send message:', error);
