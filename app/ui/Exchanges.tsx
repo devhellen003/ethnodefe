@@ -112,7 +112,7 @@ const ExchangeInfo = () => {
           </div>
         </div>
         <div className="account-infos van-tabs van-tabs--line">
-          <Tabs active={active} onChange={(name) => setActive(name)} type="capsule" color="#1d5786">
+          <Tabs active={active} onChange={(name) => setActive(name.toString())} type="capsule" color="#1d5786">
           <Tabs.TabPane key="exchange" title="Exchange">
               <div className="infos-panel-line"></div>
               <div className="account-infos-exchange">
