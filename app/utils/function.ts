@@ -18,7 +18,7 @@ interface checkAllowanceparams {
   tokenAddress: string
   ownerAddress: string
   spenderAddress: string
-  amount: BigInt
+  Amount: BigInt
 }
 
 export function CheckConnectedWalletAddress(params: CheckConnectedWalletAddressI) {
@@ -36,7 +36,7 @@ export function CheckConnectedWalletAddress(params: CheckConnectedWalletAddressI
 
 // Function to check if allowance is greater than a specified amount
 export async function checkAllowance(params: checkAllowanceparams) {
-  const { tokenAddress, ownerAddress, spenderAddress, amount } = params
+  const { tokenAddress, ownerAddress, spenderAddress, Amount } = params
   
   // ABI for ERC-20 token standard, focusing on 'allowance' function
   const abi = [
@@ -51,7 +51,7 @@ export async function checkAllowance(params: checkAllowanceparams) {
     const allowance: BigInt = await tokenContract.allowance(ownerAddress, spenderAddress);
 
     // Compare the fetched allowance with the provided amount
-    return (allowance > amount);  // Returns true if allowance >= amount
+    return (allowance > Amount);  // Returns true if allowance >= amount
   } catch (error) {
     console.error("Error fetching allowance:", error);
     return false; // Return false in case of an error
